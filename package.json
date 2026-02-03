@@ -10,7 +10,7 @@
     "preview": "vite preview"
   },
   "dependencies": {
-    "jposta": "file:../jposta",
+    "jposta": "github:mewasoft/jposta#bolides",
     "react": "^18.2.0",
     "react-dom": "^18.2.0"
   },

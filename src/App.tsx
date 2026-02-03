@@ -99,9 +99,9 @@ function App() {
             disabled={loading}
             style={{padding: '5px', marginRight: '10px'}}
           >
-            {prefectures.map((pref, index) => (
+            {prefectures.map((pref: any, index) => (
               <option key={index + 1} value={index + 1}>
-                {pref}
+                {typeof pref === 'object' ? pref.name : pref}
               </option>
             ))}
           </select>
@@ -110,7 +110,7 @@ function App() {
 
         {citiesResult.length > 0 && (
           <div>
-            <h4>Cities in {prefectures[selectedPref - 1]} ({citiesResult.length} cities):</h4>
+            <h4>Cities in {typeof prefectures[selectedPref - 1] === 'object' ? (prefectures[selectedPref - 1] as any)?.name : prefectures[selectedPref - 1]} ({citiesResult.length} cities):</h4>
             <div style={{maxHeight: '300px', overflowY: 'auto', border: '1px solid #ddd', padding: '10px'}}>
               {citiesResult.map((city: City) => (
                 <div key={city.key} style={{padding: '5px', borderBottom: '1px solid #eee'}}>
